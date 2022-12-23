@@ -48,6 +48,18 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# Stop the MongoDB service or process
+systemctl stop mongod
+if [ $? -ne 0 ]; then
+  mongod --shutdown
+  if [ $? -ne 0 ]; then
+    echo "$(date): Stopping the MongoDB service or process failed." >> "$log_file"
+    echo "Stopping the MongoDB service or process failed. Please stop the service or process manually before proceeding with the restore operation." | mail -s "Restore Failure" "$email_address"
+    rm -rf "$tmp_dir"
+    exit 1
+  fi
+fi
+
 # Restore the MongoDB database from the dump
 mongorestore --host localhost --db mydatabase "$tmp_dir/mydatabase"
 if [ $? -ne 0 ]; then
@@ -59,6 +71,9 @@ else
   echo "The restore of the MongoDB database from the backup at $src completed successfully." >> "$log_file"
   echo "The restore of the MongoDB database from the backup at $src completed successfully." | mail -s "Restore Success" "$email_address"
 fi
+
+# Start the MongoDB service or process
+systemctl start mongod
 
 # Clean up the temporary directory
 rm -rf "$tmp_dir"
