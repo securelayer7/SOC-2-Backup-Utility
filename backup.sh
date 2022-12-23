@@ -78,5 +78,3 @@ inotifywait -mrq --format '%w%f' -e modify,create,delete "$src" | while read fil
 
   # Remove the temporary directory and its contents
   rm -rf "$tmp_dir"
-
-done
