@@ -30,6 +30,21 @@ To set up a cron job for the SOC 2 Backup Utility script, follow these steps:
 - Open a terminal and enter the following command to edit the crontab file: `crontab -e`
 - Add a line to the crontab file specifying the schedule and command for running the script. For example, to run the script every day at midnight: `0 0 * * * /path/to/backup.sh`
 
+## Security Settings
+To store the password in an encrypted form, you can use a tool like gpg to encrypt the password and store it in a separate file. gpg is a command-line utility that allows you to encrypt and decrypt files using public key cryptography.
+
+Here is an example of how you can use gpg to encrypt the password and store it in a separate file:
+
+### Generate a new GPG key pair
+`gpg --full-generate-key`
+
+### Enter your name, email address, and choose a password when prompted
+
+### Export the public key
+`gpg --export -a "Your Name <your@email.com>" > public.key`
+
+### Encrypt the password using the public key
+`echo -n "yourpassword" | gpg --encrypt --recipient "Your Name <your@email.com>" > password.gpg`
 
 ## Deployment
 
