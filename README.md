@@ -98,6 +98,11 @@ After modifying the `sshd_config` file, you will need to restart the sshd daemon
 This will allow connections to the SSH server only from the specified IP addresses or networks, and will block all other connections. This can help to prevent brute-force attacks on the SSH port and improve the security of your server.
 
 
+# Restore 
+
+To use this script, simply copy it to a file on your system (e.g., "Restore-backup.sh") and make it executable by running chmod +x restore.sh. Then, you can run the script by executing `./restore-backup.sh`
+
+
 ## Deployment
 
 To use this script in a production environment, add it to your crontab to run on a schedule.
