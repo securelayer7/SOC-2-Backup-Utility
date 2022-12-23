@@ -1,7 +1,8 @@
 # SOC-2-Backup-Utility
 
-This repository contains a script for implementing a backup strategy that meets the requirements of SOC 2 Type II compliance. The script utilizes rsync, tar, and openssl to perform incremental file-based backups, compress and encrypt the data, and store it in a specified destination. The script also includes error handling and notification capabilities through email alerts and log file updates. Use this tool to ensure the protection of sensitive data and achieve compliance with the SOC 2 Type II framework.
-Getting Started
+This repository contains a script for implementing a backup strategy that meets the requirements of SOC 2 Type II compliance. The script utilizes rsync, tar, and openssl to perform incremental file-based backups, compress and encrypt the data, and store it in a specified destination. The script also includes error handling and notification capabilities through email alerts and log file updates. Use this tool to ensure the backup of sensitive data and achieve compliance with the SOC 2 Type II framework.
+
+# Getting Started
 
 These instructions will get you a copy of the script up and running on your local machine for testing purposes.
 
